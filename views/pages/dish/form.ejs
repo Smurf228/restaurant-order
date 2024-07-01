@@ -1,0 +1,94 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="pl-PL">-->
+<!--    -->
+<!--    <head>-->
+<!--        <meta charset="UTF-8">-->
+<!--        <meta name="viewport" content="width=device-width,initial-scale=1">-->
+<!--        <link rel="stylesheet" href="../../css/style.css">-->
+<!--        <script type="application/javascript" src="../../js/validationCommon.js"></script>-->
+<!--        <script type="application/javascript" src="../../js/validationDishForm.js"></script>-->
+<!--        <title> Restaurant DEMO</title>-->
+<!--    </head>-->
+<!--    <body>-->
+<!--        <header>-->
+<!--            <h1>Restaurant</h1>-->
+<!--            <img src="../../images/main.jpg" alt="Restaurant">-->
+<!--        </header>-->
+<!--        <nav>-->
+<!--            <ul>-->
+<!--                <li><a href="../../index.html"> Strona główna</a></li>-->
+<!--                <li><a href="../client/lista-client.html"> Client</a></li>-->
+<!--                <li><a href="list.html"> Dania</a></li>-->
+<!--                <li><a href="../oder/list-oder.html"> Zamówienie</a></li>-->
+<!--            </ul>-->
+<!--        </nav>-->
+
+<%- include('../../fragments/header.ejs') %>
+<script type="application/javascript" src="../../js/validationDishForm.js"></script>
+<main>
+    <h2><%= pageTitle %></h2>
+    <form class="form" method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+
+        <input type="hidden" name="_id" value="<%= dish._id%>">
+
+
+        <label for="clientName">Imie clienta: <span class="symbol-required">*</span></label>
+        <select name="clientName" id="clientName" required <%= (formMode == 'showDetails') ? 'disable' : ''%> >
+            <option value="" selected>-- Wybierz imie clienta--</option>
+            <% for (let i=0; i<allClients.length; i++) { let client = allClients[i]; %>
+            <option value="<%= client._id %>"  label="<%= client.first_name + ' ' + client.last_name%>"
+            <%= (dish._id && client._id.toString() == dish.client._id.toString()) ? 'selected' : ''%>></option>
+            <% } %>
+        </select>
+        <span id="errorClientName" class="errors-text"></span>
+
+        <label for="orderNumber">Numer zamówienia: <span class="symbol-required">*</span></label>
+        <select name="orderNumber" id="orderNumber" required <%= (formMode == 'showDetails') ? 'disable' : ''%> >
+            <option value="" selected>-- Wybierz Numer zamówienia--</option>
+            <% for (let i=0; i<allOders.length; i++) { let oder = allOders[i]; %>
+            <option value="<%= oder._id %>" label="<%= oder.oder_number %>"
+                    <%= (dish._id && oder._id.toString() == dish.oder._id.toString()) ? 'selected' : ''%>></option>
+            <% } %>
+        </select>
+        <span id="errorOrderNumber" class="errors-text"></span>
+
+        <label for="firstName">Nazwa dania: <span class="symbol-required">*</span></label>
+        <input type="text" name="firstName" id="firstName"  maxlength="15" minlength="2" placeholder="2-15 znakow" required value="<%=dish.title %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
+        <span id="errorFirstName" class="errors-text"></span>
+
+        <label for="weight">Waga: </label>
+        <input type="text" name="weight" id="weight" placeholder="100g" value="<%=dish.weight %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
+        <span id="errorWeight" class="errors-text"></span>
+
+        <label for="price">Cena: <span class="symbol-required">*</span></label>
+        <input type="number" name="price" id="price"  required value="<%=dish.price %>"
+                <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
+        <span id="errorPrice" class="errors-text"></span>
+
+        <% if (formMode == 'showDetails') {%>
+            <div class="section-buttons">
+                <a href="/dishs/edit/<%= dish._id%>" class="button-edit">Edytuj</a>
+            </div>
+        <% } %>
+
+        <div class="form-buttons">
+            <p id="errorsSummary" class="errors-text"></p>
+            <% if (formMode != 'showDetails') { %>
+            <input class="form-button-submit" type="submit" value="<%=btnLabel%>">
+            <a class="form-button-cancel" href="/dishs">Anuluj</a>
+            <%} else { %>
+                <a class="form-button-cancel" href="/dishs">Powrót</a>
+            <% } %>
+        </div>
+    </form>
+
+</main>
+
+<%- include('../../fragments/footer.ejs')%>
+<!--        <footer>-->
+<!--            Danylo Udod S20904-->
+<!--        </footer>-->
+<!--    </body>-->
+<!--</html>-->

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href="../../css/style.css">
+        <script type="application/javascript" src="../../js/validationCommon.js"></script>
+        <script type="application/javascript" src="../../js/validationOrderForm.js"></script>
+        <title> Restaurant DEMO</title>
+    </head>
+    <body>
+        <header>
+            <h1>Restaurant</h1>
+            <img src="../../images/main.jpg" alt="Restaurant">
+        </header>
+   <nav class="navbar">
+    <ul>
+        <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>"> Strona główna</a></li>
+        <li><a href="/clients" class="<%= navLocation == 'client' ? 'active' : ''%>"> Client</a></li>
+        <li><a href="/dishs" class="<%= navLocation == 'dish' ? 'active' : ''%>"> Dania</a></li>
+        <li><a href="/oders" class="<%= navLocation == 'oder' ? 'active' : ''%>"> Zamówienie</a></li>
+    </ul>
+</nav>
+
+<!-- include('../../fragments/header.ejs') -->
+        <main>
+
+
+            <h2><%= pageTitle %></h2>
+            <form class="form"method="post" action="<%=formAction%>" novalidate onsubmit="return validateForm();">
+                <input type="hidden" name="_id" value="<%= oder._id%>">
+
+
+                <label for="oder_number">Numer zamówienia: <span class="symbol-required">*</span></label>
+                <input class="<%= validationErrors.find(e => e.path.includes('oder_number')) ? 'error-input' : ''%>" type="number" name="oder_number" id="oder_number" required value="<%=oder.oder_number %>"
+                        <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
+                <span id="errorOrderNumber" class="errors-text">
+                    <%if (validationErrors.find(e => e.path.includes('oder_number'))) {%>
+                        <%= validationErrors.find(e => e.path.includes('oder_number')).message %>
+                    <% } %>
+                </span>
+
+                <label for="oder_time">Czas zamówienia: <span class="symbol-required">*</span></label>
+                <input class="<%= validationErrors.find(e => e.path.includes('orderTime')) ? 'error-input' : ''%>" type="time" name="oder_time" id="oder_time" required value="<%=oder.oder_time %>"
+                        <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
+                <span id="errorOrderTime" class="errors-text">
+                    <%if (validationErrors.find(e => e.path.includes('oder_time'))) {%>
+                        <%= validationErrors.find(e => e.path.includes('oder_time')).message %>
+                    <% } %>
+                </span>
+
+                <label for="adres" >Adres:<span class="symbol-required">*</span></label>
+                <input class="<%= validationErrors.find(e => e.path.includes('adres')) ? 'error-input' : ''%>" type="text" name="adres" id="adres" minlength="5" maxlength="20" placeholder="5-20 znakow" required value="<%=oder.adres %>"
+                        <%= (formMode == 'showDetails') ? 'disabled' : '' %>>
+                <span id="errorAdres" class="errors-text">
+                    <%if (validationErrors.find(e => e.path.includes('adres'))) {%>
+                        <%= validationErrors.find(e => e.path.includes('adres')).message %>
+                    <% } %>
+                </span>
+
+                <% if (formMode == 'showDetails') {%>
+                    <div class="section-buttons">
+                        <a href="/oders/edit/<%= oder._id%>" class="button-edit">Edytuj</a>
+                    </div>
+                <% } %>
+
+                <div class="form-buttons">
+                    <p id="errorsSummary" class="errors-text"></p>
+                    <% if (formMode != 'showDetails') { %>
+                    <input class="form-button-submit" type="submit" value="<%=btnLabel%>">
+                    <a class="form-button-cancel" href="/oders">Anuluj</a>
+                    <%} else { %>
+                        <a class="form-button-cancel" href="/oders">Powrót</a>
+                    <% } %>
+                </div>
+            </form>          
+        </main>
+
+<!-- include('../../fragments/footer.ejs')-->
+        <footer>
+            Danylo Udod S20904
+        </footer>
+    </body>
+</html>

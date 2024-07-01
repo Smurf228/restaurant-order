@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pl-PL">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="../../css/style.css">
+    <script type="application/javascript" src="../../js/validationCommon.js"></script>
+    <script type="application/javascript" src="../../js/validationClientForm.js"></script>
+
+
+    <title> Restaurant DEMO</title>
+</head>
+<body>
+<header>
+    <h1>Restaurant</h1>
+    <img src="../../images/main.jpg" alt="Restaurant">
+
+</header>
+<nav class="navbar">
+    <ul>
+        <li><a href="/" class="<%= navLocation == 'main' ? 'active' : ''%>"> Strona główna</a></li>
+        <li><a href="/clients" class="<%= navLocation == 'client' ? 'active' : ''%>"> Client</a></li>
+        <li><a href="/dishs" class="<%= navLocation == 'dish' ? 'active' : ''%>"> Dania</a></li>
+        <li><a href="/oders" class="<%= navLocation == 'oder' ? 'active' : ''%>"> Zamówienie</a></li>
+    </ul>
+</nav>

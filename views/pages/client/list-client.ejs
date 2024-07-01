@@ -1,0 +1,70 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="pl-PL">-->
+<!--    -->
+<!--    <head>-->
+<!--        <meta charset="UTF-8">-->
+<!--        <meta name="viewport" content="width=device-width,initial-scale=1">-->
+<!--        <link rel="stylesheet" href="../../css/style.css">-->
+
+<!--        <title> Restaurant DEMO</title>-->
+<!--    </head>-->
+<!--    <body>-->
+<!--        <header>-->
+<!--            <h1>Restaurant</h1>-->
+<!--            <img src="../../images/main.jpg" alt="Restaurant">-->
+<!--        </header>-->
+<!--        <nav>-->
+<!--            <ul>-->
+<!--                <li><a href="../../index.html"> Strona główna</a></li>-->
+<!--                <li><a href="lista-client.html" class="active"> Client</a></li>-->
+<!--                <li><a href="../dish/list.html"> Dania</a></li>-->
+<!--                <li><a href="../oder/list-oder.html"> Zamówienie</a></li>-->
+<!--            </ul>-->
+<!--        </nav>-->
+
+<%- include('../../fragments/header.ejs') %>
+<main>
+    <h2>Lista clientuw</h2>
+    <table class="table-list">
+        <tbody>
+        <tr>
+            <th>Imie</th>
+            <th>Nazwisko</th>
+            <th>Email</th>
+            <th>Numer telefonu</th>
+            <th>Akcje</th>
+
+        </tr>
+        <%for(let client of clients) { %>
+
+        <tr>
+            <td><%=client.first_name%></td>
+            <td><%=client.last_name%></td>
+            <td><%=client.emeil%></td>
+            <td><%=client.phone_number%></td>
+            <td>
+                <ul class="list-actions">
+                    <li>
+                        <a href="/clients/details/<%=client._id%>" class="list-actions-button-details">Szczegóły</a>
+                    </li>
+                    <li>
+                        <a href="/clients/edit/<%=client._id%>" class="list-actions-button-edit">Edytuj</a>
+                    </li>
+                    <li>
+                        <a href="/clients/delete/<%=client._id%>" class="list-actions-button-delete">Usuń</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <%}%>
+        <tbody>
+    </table>
+    <p> <a href="/clients/add" class=" button-add" >Dodaj nowego clienta</a></p>
+</main>
+
+<%- include('../../fragments/footer.ejs')%>
+<!--        <footer>-->
+<!--            Danylo Udod S20904-->
+<!--        </footer>-->
+<!--    </body>-->
+<!--</html>-->

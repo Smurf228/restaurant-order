@@ -1,0 +1,75 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="pl-PL">-->
+<!--    -->
+<!--    <head>-->
+<!--        <meta charset="UTF-8">-->
+<!--        <meta name="viewport" content="width=device-width,initial-scale=1">-->
+<!--        <link rel="stylesheet" href="../../css/style.css">-->
+
+<!--        -->
+<!--        <title> Restaurant DEMO</title>-->
+<!--    </head>-->
+<!--    <body>-->
+<!--        <header>-->
+<!--            <h2>Nowe dania</h2>-->
+<!--            <img src="../../images/main.jpg" alt="Restaurant">-->
+<!--        </header>-->
+<!--        <nav>-->
+<!--            <ul>-->
+<!--                <li><a href="../../index.html"> Strona główna</a></li>-->
+<!--                <li><a href="../client/lista-client.html"> Client</a></li>-->
+<!--                <li><a href="list.html"> Dania</a></li>-->
+<!--                <li><a href="./oder/list-oder.html"> Zamówienie</a></li>-->
+<!--            </ul>-->
+<!--        </nav>-->
+
+<%- include('../../fragments/header.ejs') %>
+        <main>
+            <h2>Nowe Dania</h2>
+            <form class="form" action="#">
+                <label for="clientName">Imie clienta: <span class="symbol-required">*</span></label>
+                <select class="errors-input" name="clientName" id="clientName" required> 
+                    <option label="-- Wybierz numer zamówienia--"></option>
+                    <option value="1">David</option> 
+                    <option value="2">Samanta</option> 
+                    <option value="3">Kurl</option>   
+                </select>              
+                <span id="errorClientName" class="errors-text">Pole jest wymagane</span>
+
+                <label for="orderNumber">Numer zamówienia: <span class="symbol-required">*</span></label>
+                <select class="errors-input" name="orderNumber" id="orderNumber" required>
+                    <option label="-- Wybierz numer zamówienia--"></option> 
+                    <option value="1">1</option> 
+                    <option value="2">2</option> 
+                    <option value="3">3</option>   
+                </select>              
+                <span id="errorOrderNumber" class="errors-text">Pole jest wymagane</span>
+
+
+                <label for="firstName">Nazwa: <span class="symbol-required">*</span></label>
+                <input class="errors-input" type="text" name="firstName" id="firstName" required>             
+                <span id="errorFirstName" class="errors-text">Pole jest wymagane</span>
+
+                <label for="weight">Waga: </label>
+                <input type="text" name="weight" id="weight">                
+                <span id="errorWeight" class="errors-text"></span>
+
+                <label for="price">Cena: <span class="symbol-required">*</span></label>
+                <input class="errors-input" type="number" name="price" id="price" required>                
+                <span id="errorPrice" class="errors-text">Pole jest wymagane</span>
+
+                <div class="form-buttons">
+                    <p  class="errors-text" id="errorSummary">Formularz zawiera błędy</p>
+                    <input class="form-button-submit" type="submit" value="Dodaj">
+                    <a  class="form-button-cancel" href="form-invalid.html">Anuluj</a>                    
+                </div>              
+            </form>
+            
+        </main>
+
+<%- include('../../fragments/footer.ejs')%>
+<!--        <footer>-->
+<!--            Danylo Udod S20904-->
+<!--        </footer>-->
+<!--    </body>-->
+<!--</html>-->

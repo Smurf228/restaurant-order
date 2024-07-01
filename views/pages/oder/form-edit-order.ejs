@@ -1,0 +1,55 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="pl-PL">-->
+<!--    -->
+<!--    <head>-->
+<!--        <meta charset="UTF-8">-->
+<!--        <meta name="viewport" content="width=device-width,initial-scale=1">-->
+<!--        <link rel="stylesheet" href="../../css/style.css">-->
+
+<!--        <title> Restaurant DEMO</title>-->
+<!--    </head>-->
+<!--    <body>-->
+<!--        <header>-->
+<!--            <h1>Edycja zamówienia</h1>-->
+<!--            <img src="../../images/main.jpg" alt="Restaurant">-->
+<!--        </header>-->
+<!--        <nav>-->
+<!--            <ul>-->
+<!--                <li><a href="../../index.html"> Strona główna</a></li>-->
+<!--                <li><a href="../client/lista-client.html"> Client</a></li>-->
+<!--                <li><a href="../dish/list.html"> Dania</a></li>-->
+<!--                <li><a href="list-oder.html"> Zamówienie</a></li>-->
+<!--            </ul>-->
+<!--        </nav>-->
+
+<%- include('../../fragments/header.ejs') %>
+        <main>
+            <h2>Edycja zamówienia</h2>
+            <form class="form" action="#">
+                <label for="orderNumber">Numer zamówienia: <span class="symbol-required">*</span></label>
+                <input type="number" name="orderNumber" id="orderNumber" min="0" value="0" required>             
+                <span id="errorFirstName" class="errors-text"></span>
+
+                <label for="orderTime">Czas zamówienia: <span class="symbol-required">*</span></label>
+                <input type="time" name="orderTime" id="orderTime" required>                
+                <span id="errorLastName" class="errors-text"></span>
+
+                <label  for="adres" >Adres:<span  class="symbol-required">*</span></label>
+                <input  type="text" name="adres" id="adres" required>                
+                <span id="errorEmail" class="errors-text"></span>
+
+                <div class="form-buttons">
+                    <p id="errorSummary"></p>
+                    <input class="form-button-submit" type="submit" value="Dodaj">
+                    <a  class="form-button-cancel" href="form-edit-order.htm">Anuluj</a>                  
+                </div>              
+            </form>
+            
+        </main>
+
+<%- include('../../fragments/footer.ejs')%>
+<!--        <footer>-->
+<!--            Danylo Udod S20904-->
+<!--        </footer>-->
+<!--    </body>-->
+<!--</html>-->

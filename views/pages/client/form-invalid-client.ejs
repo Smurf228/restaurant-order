@@ -1,0 +1,56 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="pl-PL">-->
+<!--    -->
+<!--    <head>-->
+<!--        <meta charset="UTF-8">-->
+<!--        <meta name="viewport" content="width=device-width,initial-scale=1">-->
+<!--        <link rel="stylesheet" href="../../css/style.css">-->
+<!--        <title> Restaurant DEMO</title>-->
+<!--    </head>-->
+<!--    <body>-->
+<!--        <header>-->
+<!--            <h2>Nowe dania</h2>-->
+<!--            <img src="../../images/main.jpg" alt="Restaurant">-->
+<!--        </header>-->
+<!--        <nav>-->
+<!--            <ul>-->
+<!--                <li><a href="../../index.html"> Strona główna</a></li>-->
+<!--                <li><a href="lista-client.html"> Client</a></li>-->
+<!--                <li><a href="../dish/list.html"> Dania</a></li>-->
+<!--                <li><a href="../oder/list-oder.html"> Zamówienie</a></li>-->
+<!--            </ul>-->
+<!--        </nav>-->
+<%- include('../../fragments/header.ejs') %>
+            <main>
+                <h2>Nowy Client</h2>
+                <form class="form" action="#" novalidate onsubmit="return validateForm();">
+                    <label for="firstName">Imie: <span class="symbol-required">*</span></label>
+                    <input class="errors-input" type="text" name="firstName" id="firstName" required>             
+                    <span id="errorFirstName" class="errors-text">Pole jest wymagane</span>
+    
+                    <label for="lastName">Nazwisko: <span class="symbol-required">*</span></label>
+                    <input class="errors-input" type="text" name="lastName" id="lastName" required>                
+                    <span id="errorLastName" class="errors-text">Pole jest wymagane</span>
+    
+                    <label for="email" >E-mail:</label>
+                    <input type="text" name="email" id="email">                
+                    <span id="errorEmail" class="errors-text">Pole powinno zawierać prawidłowy adres email</span>
+    
+                    <label for="phoneNumber">Phone number:<span class="symbol-required">*</span></label>
+                    <input class="errors-input" type="text" name="phoneNumber" id="phoneNumber" required>                
+                    <span id="errorPhoneNumber" class="errors-text">Pole jest wymagane</span>
+    
+                    <div class="form-buttons">
+                        <p id="errorsSummary" class="errors-text">Formularz zawiera błędy</p>
+                        <input class="form-button-submit" type="submit" value="Dodaj">
+                        <a class="form-button-cancel" href="form-edit-client.html">Anuluj</a>                    
+                    </div>              
+                </form>          
+            </main>
+
+<%- include('../../fragments/footer.ejs')%>
+<!--        <footer>-->
+<!--            Danylo Udod S20904-->
+<!--        </footer>-->
+<!--    </body>-->
+<!--</html>-->

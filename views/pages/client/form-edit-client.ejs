@@ -1,0 +1,58 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="pl-PL">-->
+<!--    -->
+<!--    <head>-->
+<!--        <meta charset="UTF-8">-->
+<!--        <meta name="viewport" content="width=device-width,initial-scale=1">-->
+<!--        <link rel="stylesheet" href="../../css/style.css">-->
+
+<!--        <title> Restaurant DEMO</title>-->
+<!--    </head>-->
+<!--    <body>-->
+<!--        <header>-->
+<!--            <h1>Edycja dania</h1>-->
+<!--            <img src="../../images/main.jpg" alt="Restaurant">-->
+<!--        </header>-->
+<!--        <nav>-->
+<!--            <ul>-->
+<!--                <li><a href="../../index.html"> Strona główna</a></li>-->
+<!--                <li><a href="lista-client.html"> Client</a></li>-->
+<!--                <li><a href="../dish/list.html"> Dania</a></li>-->
+<!--                <li><a href="../oder/list-oder.html"> Zamówienie</a></li>-->
+<!--            </ul>-->
+<!--        </nav>-->
+<%- include('../../fragments/header.ejs') %>
+        <main>
+            <h2>Edycja clienta</h2>
+            <form class="form" action="#">
+                <label for="firstName">Imie: <span class="symbol-required">*</span></label>
+                <input type="text" name="firstName" id="firstName" value="David" required>             
+                <span id="errorFirstName" class="errors-text"></span>
+
+                <label for="lastName">Nazwisko: <span class="symbol-required">*</span></label>
+                <input type="text" name="lastName" id="lastName" value="asd" required>                
+                <span id="errorLastName" class="errors-text"></span>
+
+                <label for="email" >E-mail:</label>
+                <input type="text" name="email" id="email">                
+                <span id="errorEmail" class="errors-text"></span>
+
+                <label for="phoneNumber">Phone number:<span class="symbol-required">*</span></label>
+                <input type="text" name="phoneNumber" id="phoneNumber" value="785-542-568" required>                
+                <span id="errorPhoneNUmber" class="errors-text"></span>
+
+                <div class="form-buttons">
+                    <p id="errorSummary"></p>
+                    <input class="form-button-submit" type="submit" value="Dodaj">
+                    <a  class="form-button-cancel" href="form-edit-client.html">Anuluj</a>                  
+                </div>              
+            </form>
+            
+        </main>
+
+<%- include('../../fragments/footer.ejs')%>
+<!--        <footer>-->
+<!--            Danylo Udod S20904-->
+<!--        </footer>-->
+<!--    </body>-->
+<!--</html>-->

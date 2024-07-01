@@ -1,0 +1,70 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="pl-PL">-->
+<!--    -->
+<!--    <head>-->
+<!--        <meta charset="UTF-8">-->
+<!--        <meta name="viewport" content="width=device-width,initial-scale=1">-->
+<!--        <link rel="stylesheet" href="../../css/style.css">-->
+
+<!--        -->
+<!--        <title> Restaurant DEMO</title>-->
+<!--    </head>-->
+<!--    <body>-->
+<!--        <header>-->
+<!--            <h1>Restaurant</h1>-->
+<!--            <img src="../../images/main.jpg" alt="Restaurant">-->
+<!--        </header>-->
+<!--        <nav>-->
+<!--            <ul>-->
+<!--                <li><a href="../../index.html"> Strona główna</a></li>-->
+<!--                <li><a href="../client/lista-client.html"> Client</a></li>-->
+<!--                <li><a href="list.html" class="active"> Dania</a></li>-->
+<!--                <li><a href="../oder/list-oder.html"> Zamówienie</a></li>-->
+<!--            </ul>-->
+<!--        </nav>-->
+
+<%- include('../../fragments/header.ejs') %>
+<main class="">
+    <h2>Dania</h2>
+    <table class="table-list">
+        <tbody>
+
+        <tr>
+            <th>Imie clienta</th>
+            <th>Numer zamówienia</th>
+            <th>Nazwa</th>
+            <th>Waga</th>
+            <th>Cena</th>
+            <th>Akcje</th>
+        </tr>
+        <%for(let dish of dishs) { %>
+        <tr>
+            <td><%=dish.first_name%></td>
+            <td><%=dish.oder_number%></td>
+            <td><%=dish.title%></td>
+            <td><%=dish.weight%></td>
+            <td><%=dish.price%></td>
+            <td>
+                <ul class="list-actions">
+                    <li>
+                        <a href="/dishs/edit/<%=dish.d_id%>" class="list-actions-button-edit">Edytuj</a>
+                    </li>
+                    <li>
+                        <a href="/dishs/delete/<%=dish.d_id%>" class="list-actions-button-delete">Usuń</a>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+            <%}%>
+        </tbody>
+    </table>
+
+    <p> <a class="button-add" href="/dishs/add">Dodaj nowe dania</a></p>
+</main>
+
+<%- include('../../fragments/footer.ejs')%>
+<!--        <footer>-->
+<!--            Danylo Udod S20904-->
+<!--        </footer>-->
+<!--    </body>-->
+<!--</html>-->

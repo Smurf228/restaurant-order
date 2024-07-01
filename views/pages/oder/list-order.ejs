@@ -1,0 +1,68 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="pl-PL">-->
+<!--    -->
+<!--    <head>-->
+<!--        <meta charset="UTF-8">-->
+<!--        <meta name="viewport" content="width=device-width,initial-scale=1">-->
+<!--        <link rel="stylesheet" href="../../css/style.css">-->
+
+<!--        <title> Restaurant DEMO</title>-->
+<!--    </head>-->
+<!--    <body>-->
+<!--        <header>-->
+<!--            <h1>Restaurant</h1>-->
+<!--            <img src="../../images/main.jpg" alt="Restaurant">-->
+<!--        </header>-->
+<!--        <nav>-->
+<!--            <ul>-->
+<!--                <li><a href="../../index.html"> Strona główna</a></li>-->
+<!--                <li><a href="../client/lista-client.html"> Client</a></li>-->
+<!--                <li><a href="../dish/list.html"> Dania</a></li>-->
+<!--                <li><a href="list-oder.html" class="active"> Zamówienie</a></li>-->
+<!--            </ul>-->
+<!--        </nav>-->
+
+<%- include('../../fragments/header.ejs') %>
+<script type="application/javascript" src="../../js/validationOrderForm.js"></script>
+        <main>
+        <h2>Lista zamówienia</h2>
+        <table class="table-list">
+            <tbody>
+            <tr>
+                <th>Numer zamówienia</th>
+                <th>Czas</th>
+                <th>Adres</th>
+                <th>Akcje</th>
+            </tr>
+            <%for(let oder of oders) { %>
+                    <td><%=oder.oder_number%></td>
+                    <td><%=oder.oder_time%></td>
+                    <td><%=oder.adres%></td>
+                    <td>
+                        <ul class="list-actions">
+                            <li>
+                                <a href="/oders/details/<%=oder._id%>" class="list-actions-button-details">Szczegóły</a>
+                            </li>
+                            <li>
+                                <a href="/oders/edit/<%=oder._id%>" class="list-actions-button-edit">Edytuj</a>
+                            </li>
+                            <li>
+                                <a href="/oders/delete/<%=oder._id%>" class="list-actions-button-delete">Usuń</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            <%}%>
+            </tbody>
+        </table>
+
+        <p> <a class="button-add" href="/oders/add">Dodaj nowe zamówienia</a></p>
+
+    </main>
+
+<%- include('../../fragments/footer.ejs')%>
+<!--        <footer>-->
+<!--            Danylo Udod S20904-->
+<!--        </footer>-->
+<!--    </body>-->
+<!--</html>-->
